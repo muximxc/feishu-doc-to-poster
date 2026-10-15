@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;min-height:1600px;font-family:"PingFang SC",sans-serif;color:#191919;background:linear-gradient(135deg,#F1E7F6 0%,#F8E9F0 50%,#FDE9E1 100%);position:relative;overflow:hidden}
+.container{padding:80px 90px;display:flex;flex-direction:column}
+.logo{height:50px;margin-bottom:60px}
+h1{font-size:88px;font-weight:900;line-height:1.2;margin-bottom:24px;text-wrap:balance}
+h1 .highlight{color:#B02E7E}
+.subtitle{font-size:36px;font-weight:600;color:#666;margin-bottom:80px;text-wrap:balance}
+.section{margin-bottom:60px}
+.section-title{font-size:38px;font-weight:700;text-align:center;color:#7B2D8E;margin-bottom:40px;position:relative;display:inline-block;width:100%}
+.section-title::before,.section-title::after{content:"";position:absolute;top:50%;width:120px;height:2px;background:#7B2D8E}
+.section-title::before{left:calc(50% - 240px)}
+.section-title::after{right:calc(50% - 240px)}
+.card{background:white;border:1px solid #F1E2EE;border-radius:22px;padding:32px;margin-bottom:16px}
+.card-item{font-size:23px;line-height:1.6;margin-bottom:12px;text-wrap:balance}
+.card-item:last-child{margin-bottom:0}
+.card-item::before{content:"• ";color:#B02E7E;font-weight:700}
+.vision{background:linear-gradient(90deg,#8A2BA0,#B02E7E,#E05A8E);padding:40px;border-radius:22px;color:white;text-align:center;font-size:28px;line-height:1.6;margin-bottom:60px;text-wrap:balance}
+.qr-section{display:flex;align-items:center;justify-content:space-between;background:white;border:1px solid #F1E2EE;border-radius:22px;padding:40px}
+.qr-text{flex:1;font-size:32px;font-weight:700}
+.qr-code{width:180px;height:180px;background:#f5f5f5;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px}
+.footer{margin-top:60px;text-align:center;font-size:32px;font-weight:700;color:#7B2D8E;text-wrap:balance}
+.footer .number{font-size:48px;color:#FFE36E;font-weight:900}
+</style>
+</head>
+<body>
+<div class="container">
+<img class="logo" src="{{LOGO_PATH}}" alt="Logo">
+
+<h1><span class="highlight">{{TITLE_HIGHLIGHT}}</span>{{TITLE_REST}}</h1>
+<div class="subtitle">{{SUBTITLE}}</div>
+
+<div class="section">
+  <div class="section-title">我们在寻找</div>
+  <div class="card">
+    {{#LOOKING_FOR_ITEMS}}
+    <div class="card-item">{{ITEM}}</div>
+    {{/LOOKING_FOR_ITEMS}}
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">我们能提供</div>
+  <div class="card">
+    {{#OFFER_ITEMS}}
+    <div class="card-item">{{ITEM}}</div>
+    {{/OFFER_ITEMS}}
+  </div>
+</div>
+
+{{#HAS_VISION}}
+<div class="vision">{{VISION_TEXT}}</div>
+{{/HAS_VISION}}
+
+<div class="qr-section">
+  <div class="qr-text">扫码报名</div>
+  <div class="qr-code">{{QR_CODE}}</div>
+</div>
+
+{{#HAS_FOOTER}}
+<div class="footer">{{FOOTER_TEXT}}</div>
+{{/HAS_FOOTER}}
+
+</div>
+</body>
+</html>

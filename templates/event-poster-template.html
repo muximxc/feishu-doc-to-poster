@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:{{CANVAS_HEIGHT}};font-family:"Noto Sans CJK SC",sans-serif;color:#1a1a1a;background:#fffaf9;position:relative;overflow:hidden}
+.bg1{position:absolute;left:-260px;top:-300px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,#f4e9fa 0%,rgba(244,233,250,0) 68%)}
+.bg2{position:absolute;right:-300px;top:-240px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,#ffeae2 0%,rgba(255,234,226,0) 68%)}
+.wrap{position:absolute;left:96px;right:96px;top:80px;bottom:700px;display:flex;flex-direction:column}
+.logos{display:flex;align-items:center;gap:28px;height:64px}
+.logos .sh{height:46px}.logos .mzl{height:54px;margin-top:0}
+.x{font-size:26px;color:#6b6670;font-weight:300}
+.mz{display:flex;align-items:center;gap:12px}.mz img{height:58px}.mz span{font-size:30px;font-weight:700;color:#1a1a1a;letter-spacing:2px}
+.eyebrow{margin-top:72px;font-size:24px;letter-spacing:6px;color:#6b6670;font-weight:500}
+h1{margin-top:28px;font-family:"Noto Serif CJK SC",serif;font-weight:900;line-height:1.18}
+h1 .en{display:block;font-size:74px;letter-spacing:1px}
+h1 .zh{display:block;font-size:94px;color:#b82d89;letter-spacing:2px}
+.hook{margin-top:32px;font-size:32px;font-weight:500}
+.sub{margin-top:14px;font-size:24px;color:#6b6670;letter-spacing:2px}
+.rule{flex-shrink:0;height:1px;background:#ece4ea;margin:44px 0 36px}
+.lab{font-size:22px;color:#6b6670;letter-spacing:4px}
+.talk{margin-top:16px;font-size:36px;font-weight:700;line-height:1.35}
+.nm{font-size:40px;font-weight:700}.xh{margin-top:8px;font-size:26px;color:#1a1a1a}.xh b{font-weight:700;margin-right:4px}.tt{margin-top:14px;font-size:24px;color:#6b6670}.tt strong{color:#1a1a1a;font-weight:700}
+.who{margin-top:34px!important;margin-top:16px;margin-bottom:0;font-size:28px}.who b{font-weight:700}.who span{color:#6b6670;font-size:24px;margin-left:16px}
+.bottom{margin-top:auto;height:384px;display:flex;justify-content:space-between;align-items:stretch}
+.info{width:560px;display:flex;flex-direction:column;gap:28px}.info .price{margin-top:44px!important}.info .price{margin-top:auto}
+.row{display:flex;margin-bottom:0;gap:24px;font-size:28px;line-height:1.4}.row .k{color:#6b6670;font-size:24px;width:52px;padding-top:3px}
+.row small{display:block;font-size:22px;color:#6b6670;margin-top:4px}
+.price{background:#fcf0f1;border:1px solid #f3e4e8;border-radius:16px;padding:22px 28px}
+.price .p{font-size:30px;font-weight:700}.price .p em{font-style:normal;color:#b82d89;font-size:48px}
+.price .p i{font-style:normal;font-size:22px;color:#6b6670;font-weight:400;margin-left:12px}
+.price .o{font-size:22px;color:#6b6670;margin-top:4px}
+.qr{width:260px;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:18px}
+.qrbox{width:260px;flex:1;background:#fcf0f1;border:1px solid #f3e4e8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#6b6670;letter-spacing:2px}
+.qr p{font-size:24px;font-weight:500;text-align:center;line-height:1.4}.qr .d{font-size:22px;color:#6b6670;font-weight:400}
+.num{position:absolute;right:72px;top:56px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:300px;line-height:1;color:#f0e2ec;letter-spacing:-8px}
+.ar{font-style:normal;color:#b9b2bb;font-weight:300;margin:0 4px}
+.slogan{position:absolute;left:0;right:0;top:{{SLOGAN_TOP}};text-align:center;font-family:"Noto Serif CJK SC",serif;font-size:30px;font-weight:500;color:#8a6a7e;letter-spacing:8px;z-index:3}
+.photo{position:absolute;left:0;right:0;bottom:0;height:640px;background:url({{VENUE_PHOTO}}) 58% 22%/150% auto no-repeat;filter:saturate(.75) contrast(.9);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.04) 8%,rgba(0,0,0,.12) 15%,rgba(0,0,0,.26) 22%,rgba(0,0,0,.45) 29%,rgba(0,0,0,.66) 36%,rgba(0,0,0,.84) 42%,rgba(0,0,0,.95) 47%,#000 52%),linear-gradient(to right,rgba(0,0,0,.55) 0%,#000 7%,#000 93%,rgba(0,0,0,.55) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.04) 8%,rgba(0,0,0,.12) 15%,rgba(0,0,0,.26) 22%,rgba(0,0,0,.45) 29%,rgba(0,0,0,.66) 36%,rgba(0,0,0,.84) 42%,rgba(0,0,0,.95) 47%,#000 52%),linear-gradient(to right,rgba(0,0,0,.55) 0%,#000 7%,#000 93%,rgba(0,0,0,.55) 100%);mask-composite:intersect}
+.tint{position:absolute;left:0;right:0;bottom:0;height:640px;background:linear-gradient(to bottom,rgba(255,234,226,0) 0%,rgba(255,234,226,.16) 60%,rgba(255,234,226,.10) 100%);mix-blend-mode:multiply;pointer-events:none}
+.pfoot{position:absolute;z-index:3;left:96px;bottom:36px;color:#fff;font-size:22px;letter-spacing:3px;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.foot{position:absolute;left:0;right:0;bottom:0;font-size:20px;color:#6b6670;letter-spacing:2px}
+</style>
+</head>
+<body>
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="photo"></div>
+<div class="tint"></div>
+<div class="slogan">{{SLOGAN_TEXT}}</div>
+
+<div class="wrap">
+<div class="logos"><img class="sh" src="{{SHANHE_LOGO}}"><span class="x">×</span><img class="mzl" src="{{PARTNER_LOGO}}"></div>
+<div class="eyebrow">{{SERIES_NAME}}</div>
+<h1><span class="en">{{TITLE_EN}}</span><span class="zh">{{TITLE_ZH}}</span></h1>
+<div class="hook">{{HOOK_LINE}}</div>
+<div class="sub">{{ACTIVITY_FORMAT}}</div>
+<div class="rule"></div>
+<div class="lab">{{GUEST_SECTION_TITLE}}</div>
+<div class="talk">{{GUEST_TALK_TOPIC}}</div>
+<div class="who">
+  <div class="nm">{{GUEST_NAME}}</div>
+  <div class="xh"><b>{{GUEST_SOCIAL_PLATFORM}}</b> {{GUEST_SOCIAL_HANDLE}}</div>
+  <div class="tt">{{GUEST_TITLE}}</div>
+</div>
+<div class="rule" style="margin:44px 0 44px"></div>
+<div class="bottom">
+ <div class="info">
+  <div class="row"><span class="k">时间</span><div>{{EVENT_TIME}}</div></div>
+  <div class="row"><span class="k">地点</span><div>{{EVENT_VENUE}}<small>{{EVENT_ADDRESS}}</small></div></div>
+  <div class="price">
+    <div class="p">{{PRICE_TYPE}} <em>{{PRICE_AMOUNT}} 元</em><i>{{PRICE_CONDITION}}</i></div>
+    <div class="o">{{PRICE_ORIGINAL}}</div>
+  </div>
+ </div>
+ <div class="qr">
+   <div class="qrbox">{{QR_CODE_OR_TEXT}}</div>
+   <p><span class="d">{{DEADLINE}}</span></p>
+ </div>
+</div>
+
+</div>
+</body>
+</html>
